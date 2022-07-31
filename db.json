@@ -8,7 +8,7 @@
       "category": "comedy",
       "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/5/3/6/6/1001004011806635.jpg",
       "capacity": 10,
-      "sold": 2,
+      "sold": 1,
       "price": 10,
       "InCart": true
     },
@@ -20,7 +20,7 @@
       "category": "mystery",
       "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/2/2/5/2/9200000002212522.jpg",
       "capacity": 30,
-      "sold": 4,
+      "sold": 1,
       "price": 17.5,
       "InCart": true
     },
@@ -32,7 +32,7 @@
       "category": "fantasy",
       "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/7/0/0/7/9200000009027007.jpg",
       "capacity": 30,
-      "sold": 3,
+      "sold": 1,
       "price": 24.5,
       "InCart": true
     },
@@ -58,7 +58,7 @@
       "capacity": 8,
       "price": 7,
       "InCart": true,
-      "sold": 5
+      "sold": 1
     }
   ]
 }
