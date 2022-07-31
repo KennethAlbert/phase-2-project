@@ -16,7 +16,9 @@ users can:
 1.See every book item available in the database(db.json) after the page loads
 see the code below:
 
+
 const [books, setBooks] = useState([]);
+
 
 const url = 'http://localhost:8004/books'
 
@@ -41,14 +43,14 @@ The book items will be stored in the books state variable and passed down via pr
 
 2.see every item available in cart
 
-const[incart,setCart]=useState([]);
+const[incart ,setCart]=useState([]);
  const newBook= books.filter(book=>{
    return (book.InCart===true)
   })
 
 useEffect(() => {
    setCart( newBook)
-  },[books])
+  },[books ])
 
 we then look for how many items in the book state variable have a boolean value of true on the Incart key,If true we store the return value to the  incart state variable
 
@@ -60,32 +62,55 @@ function InCartBook({book,handleCapacity,handleRemoveCapacity,handlCartRemove}) 
 const [readMore, setReadMore] = useState(false);
   return (
     <>
+    
     <article className="single-book" key={book.id}>
+     
       <img src={book.image} alt={book.title} />
+     
       <footer>
+        
         <div className="book-info">
+          
           <h4>{book.title}</h4>
+          
           <h4 className="book-price">${book.price}</h4>
+        
         </div>
+       
         <p>
           {readMore ? book.summary : `${book.summary.substring(0, 200)}...`}
+          
           <button onClick={() => setReadMore(!readMore)}>
             {readMore ? 'show less' : '  read more'}
+         
           </button>
+
         </p>
+
+
         <button className="addToCart-btn" onClick={()=>handleRemoveCapacity(book)} >
+
           -
+
         </button>
+
         <button className="addToCart-btn" >
          {book.sold}
+
         </button>
+
         <button className="addToCart-btn" onClick={()=>handleCapacity(book)}>
          +
+
         </button>
+
         <button className="delete-btn" onClick={()=>handlCartRemove(book)} >
           Remove from Cart
+
         </button>
+
       </footer>
+
     </article>
     </>
   );
@@ -199,7 +224,7 @@ function AddBooks({handleBooks}) {
     const { name, value } = e.target;
     setNewBook({
       ...newBook,
-      [name]: value,
+      [name ]: value,
     });
   }
   function handleForm(e) {
@@ -220,8 +245,13 @@ function AddBooks({handleBooks}) {
   }
 
   return (
-    <main>  
-<div className="title">
+
+    <main>
+
+ 
+  
+  < div className="title">
+
     <h2>Add Books</h2>
     </div>
 
@@ -264,8 +294,8 @@ function AddBooks({handleBooks}) {
 
       <button type="submit">Add to List</button>
     </form>
-</main>
+
+</ main>
   )
 }
-
 export default AddBooks
