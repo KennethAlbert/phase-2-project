@@ -2,18 +2,8 @@ import React,{useState} from 'react'
 
 function InCartBook({book,handleCapacity,handleRemoveCapacity,handlCartRemove}) {
  const [readMore, setReadMore] = useState(false);
-
-
-
-
-
-
-
-
   return (
     <>
-    
-
     <article className="single-book" key={book.id}>
       <img src={book.image} alt={book.title} />
       <footer>
