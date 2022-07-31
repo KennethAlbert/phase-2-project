@@ -6,7 +6,7 @@ function AddBooks({handleBooks}) {
 
   let navigate = useNavigate();
   const unique_id = uuid();
-  const small_id = unique_id.slice(0,4)
+  const small_id = unique_id.slice(0,5)
 
   const [newBook, setNewBook] = useState({
   id:"",
