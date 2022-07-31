@@ -21,7 +21,7 @@ function InCart({books,handleCapacity,handleRemoveCapacity,handlCartRemove,setCa
     })
     navigate("/")
    
-    
+    setCart([])
     }
 
     
