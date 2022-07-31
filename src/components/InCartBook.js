@@ -23,6 +23,7 @@ function InCartBook({book,handleCapacity,handleRemoveCapacity,handlCartRemove}) 
         <button className="addToCart-btn" onClick={()=>handleRemoveCapacity(book)} >
           -
         </button>
+
         <button className="addToCart-btn" >
          {book.sold}
         </button>
@@ -32,6 +33,7 @@ function InCartBook({book,handleCapacity,handleRemoveCapacity,handlCartRemove}) 
         <button className="addToCart-btn" onClick={()=>handleCapacity(book)}>
          +
         </button>
+
 
         <button className="delete-btn" onClick={()=>handlCartRemove(book)} >
           Remove from Cart
