@@ -23,12 +23,10 @@ const Books = ({ books,handleAddCart,handlDelete,incart }) => {
     }
   });
 
-  function handleSearchChange(event) {setfilterName(event.target.value)}
+function handleSearchChange(event) {setfilterName(event.target.value)}
 
 
-  function handleCategoryChange(event) {
-    setSelectedCategory(event.target.value)
-  }
+function handleCategoryChange(event) {setSelectedCategory(event.target.value)}
 
   const cartItems=incart===[]?0:incart.reduce((a,b)=>a+b.sold,0)
   
