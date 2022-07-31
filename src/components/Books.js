@@ -2,7 +2,6 @@ import Book from './Book';
 import React, { useState } from "react";
 import { Link} from "react-router-dom";
 import {BsCart2 }from  'react-icons/bs';
-
 import Filter from './Filter';
 
 const Books = ({ books,handleAddCart,handlDelete,incart }) => {
