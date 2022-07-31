@@ -16,7 +16,7 @@ function AddBooks({handleBooks}) {
   category:"",
   image:"",
   capacity:"",
-  books_sold:parseInt(0),
+  sold: 0,
   price:"",
   InCart:false
   });
@@ -41,6 +41,7 @@ function AddBooks({handleBooks}) {
       category:newBook.category,
       image:newBook.image,
       capacity:parseInt(newBook.capacity),
+      sold:newBook.sold,
       price:parseInt(newBook.price),
       InCart:false  
         });
