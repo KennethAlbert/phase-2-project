@@ -3,7 +3,7 @@ import { Link} from "react-router-dom";
 
 
 
-function Admin({books,handleDelete,handleBooks }) {
+function Admin({books,handleDelete }) {
     const [readMore, setReadMore] = useState(false);
    
     
