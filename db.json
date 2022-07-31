@@ -10,7 +10,7 @@
       "capacity": 10,
       "sold": 4,
       "price": 10,
-      "InCart": false
+      "InCart": true
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "capacity": 30,
       "sold": 2,
       "price": 17.5,
-      "InCart": false
+      "InCart": true
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "capacity": 30,
       "sold": 6,
       "price": 24.5,
-      "InCart": false
+      "InCart": true
     },
     {
       "id": "91ae1",
@@ -45,7 +45,7 @@
       "image": "https://i.pravatar.cc",
       "capacity": 9,
       "price": 5,
-      "InCart": false
+      "InCart": true
     }
   ]
 }
