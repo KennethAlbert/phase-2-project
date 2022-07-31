@@ -34,7 +34,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://localhost:8004/books')
+    fetch(url)
     .then(res=>{
       if(res.ok){
         return res.json()
