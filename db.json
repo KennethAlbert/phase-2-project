@@ -8,9 +8,9 @@
       "category": "comedy",
       "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/5/3/6/6/1001004011806635.jpg",
       "capacity": 10,
-      "sold": 1,
+      "sold": 4,
       "price": 10,
-      "InCart": true
+      "InCart": false
     },
     {
       "id": 3,
@@ -20,9 +20,9 @@
       "category": "mystery",
       "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/2/2/5/2/9200000002212522.jpg",
       "capacity": 30,
-      "sold": 7,
+      "sold": 2,
       "price": 17.5,
-      "InCart": true
+      "InCart": false
     },
     {
       "id": 4,
@@ -32,33 +32,20 @@
       "category": "fantasy",
       "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/7/0/0/7/9200000009027007.jpg",
       "capacity": 30,
-      "sold": 5,
+      "sold": 6,
       "price": 24.5,
-      "InCart": true
+      "InCart": false
     },
     {
-      "id": "ad94",
-      "title": "cvc",
-      "author": "cvnv",
-      "summary": "cnnccncn",
-      "category": "",
+      "id": "91ae1",
+      "title": "My book",
+      "author": "Almasi",
+      "summary": "Went above and beyond in the visual aspect Suggestions for what this can mean: Intuitive, easy to follow layout. Simple yet polished styling. Form field labels where appropriate. Form fields that are validated correctly, and get cleared after submitting. Detailed, well put together readme. No typos. And much more",
+      "category": "fantasy",
       "image": "https://i.pravatar.cc",
-      "capacity": 6,
-      "sold": 1,
-      "price": 4,
-      "InCart": true
-    },
-    {
-      "id": "2a9a",
-      "title": "cscsc",
-      "author": "dvvd",
-      "summary": "bdbdbbd",
-      "category": "thriller",
-      "image": "https://i.pravatar.cc",
-      "capacity": 8,
-      "price": 7,
-      "InCart": true,
-      "sold": 5
+      "capacity": 9,
+      "price": 5,
+      "InCart": false
     }
   ]
 }
