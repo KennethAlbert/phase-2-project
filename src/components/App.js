@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route,Link} from "react-router-dom";
 import Books from './Books'
 import InCart from './InCart';
 import AddBooks from './AddBooks';
-
 import Admin from './Admin';
 
 
@@ -15,6 +14,8 @@ function App() {
   const [books, setBooks] = useState([]);
   const[incart,setCart]=useState([]);
   
+  
+
 
  const newBook= books.filter(book=>{
    return (book.InCart===true)
@@ -22,7 +23,7 @@ function App() {
     
   
   useEffect(() => {
-   setCart(newBook)
+   setCart( newBook)
   },[books])
   
 
@@ -45,7 +46,6 @@ function App() {
     }})
      .then(data=>{
       setBooks(data)
-
     })
   }, [])
 
@@ -179,7 +179,9 @@ function handlDelete(book) {
   setBooks(books.filter(b=>b.id!==book.id))
 }
    
-   
+
+
+  
   return (
     <> 
       <Router>
@@ -190,7 +192,7 @@ function handlDelete(book) {
        </nav>
       <Routes>
         <Route  exact path="/" element={<Books books={books} handlDelete={handlDelete} incart={incart} handleAddCart={handleAddCart}/>} />
-        <Route path="/incart" element={<InCart books={incart}  handleCapacity={handleCapacity} handlCartRemove={handlCartRemove} handleRemoveCapacity={handleRemoveCapacity} />} />
+        <Route path="/incart" element={<InCart books={incart} setCart={setCart} handleCapacity={handleCapacity} handlCartRemove={handlCartRemove} handleRemoveCapacity={handleRemoveCapacity} />} />
         <Route path="/admin/addbooks" element={<AddBooks handleBooks={handleBooks} />}/>
         <Route path="/admin/*" element={<Admin books={books} handleBooks={handleBooks} handleDelete={handleDelete} handleUpdate={handleUpdate}/>} />
       </Routes>

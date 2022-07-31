@@ -33,8 +33,8 @@ const Books = ({ books,handleAddCart,handlDelete,incart }) => {
     setSelectedCategory(event.target.value)
   }
 
-  const cartItems=incart.reduce((a,b)=>a+b.sold,0)
-
+  const cartItems=incart===[]?0:incart.reduce((a,b)=>a+b.sold,0)
+  
   return (
     <>
     <div className="cartNav" id="booksCart">

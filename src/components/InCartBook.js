@@ -47,9 +47,7 @@ function InCartBook({book,handleCapacity,handleRemoveCapacity,handlCartRemove}) 
           Remove from Cart
         </button>
 
-        <button className="addToCart-btn" >
-          Buy
-        </button>
+       
 
         
       </footer>
