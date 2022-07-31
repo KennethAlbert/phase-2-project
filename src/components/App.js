@@ -10,13 +10,15 @@ import Admin from './Admin';
 const url = 'http://localhost:8004/books'
 
 
+
 function App() {
-  const [books, setBooks] = useState([]);
-  const[incart,setCart]=useState([]);
-  
-  
 
 
+
+ const [books, setBooks] = useState([]);
+ const[incart,setCart]=useState([]);
+  
+  
  const newBook= books.filter(book=>{
    return (book.InCart===true)
   })
@@ -30,15 +32,11 @@ function App() {
   
  
 
-
-
-
   useEffect(() => {
     fetch(url)
     .then(res=>{
       if(res.ok){
-        return res.json()
-      }
+        return res.json() }
       else {
         return res.text().then((err) => {
           throw err;
@@ -64,6 +62,8 @@ body: JSON.stringify(book),
     setBooks( newBookList)
 
    }
+
+   
   
   function handleDelete(id) {
     const newBook=books.filter(book=>book.id!==id);
@@ -72,6 +72,8 @@ body: JSON.stringify(book),
     method: 'DELETE',
 })
    }
+
+
  function handleUpdate(id,key,value){
   fetch(`http://localhost:8004/books/${id}`, {
     method: 'PATCH',
