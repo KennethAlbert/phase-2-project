@@ -1,70 +1,271 @@
-# Getting Started with Create React App
+# Book store Application Project
+Name:Kenneth Gichuka
+Project Name:Book store Application Project
+Link:https://book-store-react-project.herokuapp.com/
+GitHub:https://github.com/KennethAlbert/phase-2-project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+run--  npm start   ---to start the react server
+run ---  npm run server   ---to start the db.json server
 
-In the project directory, you can run:
 
-### `npm start`
+### Core Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+users can:
+1.See every book item available in the database(db.json) after the page loads
+see the code below:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+const [books, setBooks] = useState([]);
 
-### `npm test`
+const url = 'http://localhost:8004/books'
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+useEffect(() => {
+    fetch(url)
+    .then(res=>{
+      if(res.ok){
+        return res.json() }
+      else {
+        return res.text().then((err) => {
+          throw err;
+        });
+    }})
+     .then(data=>{
+      setBooks(data)
+    })
+  }, [])
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The book items will be stored in the books state variable and passed down via props to child components for future rendering on the UI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2.see every item available in cart
 
-### `npm run eject`
+const[incart,setCart]=useState([]);
+ const newBook= books.filter(book=>{
+   return (book.InCart===true)
+  })
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+useEffect(() => {
+   setCart( newBook)
+  },[books])
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+we then look for how many items in the book state variable have a boolean value of true on the Incart key,If true we store the return value to the  incart state variable
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+We then use the useEffect hook to render Items as the return value will be dependant on changes changes in the book variable;
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3.Increase or decrease the number of items in the cart
 
-## Learn More
+function InCartBook({book,handleCapacity,handleRemoveCapacity,handlCartRemove}) {
+const [readMore, setReadMore] = useState(false);
+  return (
+    <>
+    <article className="single-book" key={book.id}>
+      <img src={book.image} alt={book.title} />
+      <footer>
+        <div className="book-info">
+          <h4>{book.title}</h4>
+          <h4 className="book-price">${book.price}</h4>
+        </div>
+        <p>
+          {readMore ? book.summary : `${book.summary.substring(0, 200)}...`}
+          <button onClick={() => setReadMore(!readMore)}>
+            {readMore ? 'show less' : '  read more'}
+          </button>
+        </p>
+        <button className="addToCart-btn" onClick={()=>handleRemoveCapacity(book)} >
+          -
+        </button>
+        <button className="addToCart-btn" >
+         {book.sold}
+        </button>
+        <button className="addToCart-btn" onClick={()=>handleCapacity(book)}>
+         +
+        </button>
+        <button className="delete-btn" onClick={()=>handlCartRemove(book)} >
+          Remove from Cart
+        </button>
+      </footer>
+    </article>
+    </>
+  );
+}
+export default InCartBook
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The  InCartBook component will be responsible for handling the addition and reduction of cart items as it accomodates the handleCapacity && handlCartRemove call back functions which are responsible for the operations,they accept a book item as a parameter and uses that to change respective properties both in state and the database.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+An Admin can---
+1.Delete items from the database and state:
+function Admin({books,handleDelete,handleBooks }) {
+    const [readMore, setReadMore] = useState(false);
+    const adminBooks=books.map(book=>{
+        return (
 
-### Code Splitting
+            <article className="single-book" key={book.id}>
+              <img src={book.image} alt={book.title} />
+              <footer>
+                <div className="book-info">
+                  <h4>{book.title}</h4>
+                  <h4 className="book-price">${book.price}</h4>
+                </div>
+                
+                <p>
+                  {readMore ? book.summary : `${book.summary.substring(0, 200)}...`}
+                  <button onClick={() => setReadMore(!readMore)}>
+                    {readMore ? 'show less' : '  read more'}
+                  </button>
+                </p>
+        
+              
+        
+                <button className="delete-btn" onClick={()=>{handleDelete(book.id)}}>
+                  Remove  From List
+                </button>
+                
+              </footer>
+            </article>
+            
+          );
+    
+    })
+    
+  return (
+    <>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    <main>
 
-### Analyzing the Bundle Size
+       <div className='cartNav'>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+           <div>
 
-### Making a Progressive Web App
+          <Link to="addbooks">
+           AddBooks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+          </Link>
+           </div>
 
-### Advanced Configuration
+          </div>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+        <section>
+          <div className="title">
+            
+            <h2>Admin Panel</h2>
+          
+          </div>
+          <div>
+          {adminBooks}
+          </div>
+        </section>
+        
+        </main>
+     
+      
+        </>
+  )
+}
 
-### Deployment
+export default Admin
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Through props the Admin component will accept handleDelete call back function from the App component which will then delete the specific item clicked on.
 
-### `npm run build` fails to minify
+2.The admin can Add items into the database(db.json) and at the same time in state-
+see the code below-
+import React,{useState} from 'react'
+import { useNavigate } from "react-router-dom";
+import { v4 as uuid } from 'uuid';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+function AddBooks({handleBooks}) {
+
+  let navigate = useNavigate();
+  const unique_id = uuid();
+  const small_id = unique_id.slice(0,5)
+
+  const [newBook, setNewBook] = useState({
+  id:"",
+  title: "",
+  author: "",
+  summary:"",
+  category:"",
+  image:"",
+  capacity:"",
+  books_sold:parseInt(0),
+  price:"",
+  InCart:false
+  });
+
+  
+
+  function handleBook(e) {
+    const { name, value } = e.target;
+    setNewBook({
+      ...newBook,
+      [name]: value,
+    });
+  }
+  function handleForm(e) {
+    e.preventDefault();
+  
+       handleBooks({
+      id:small_id,
+      title: newBook.title,
+      author: newBook.author,
+      summary:newBook.summary,
+      category:newBook.category,
+      image:newBook.image,
+      capacity:parseInt(newBook.capacity),
+      price:parseInt(newBook.price),
+      InCart:false  
+        });
+      navigate("/")   
+  }
+
+  return (
+    <main>  
+<div className="title">
+    <h2>Add Books</h2>
+    </div>
+
+    <form className="NewItem" onSubmit={handleForm}>
+      <label>
+        Title:
+        <input type="text" name="title" onChange={handleBook} onSubmit={handleForm}/>
+      </label>
+      <label>
+        Author:
+        <input type="text" name="author" onChange={handleBook}/>
+      </label>
+      <label>
+        Summary:
+        <textarea type="text" name="summary" rows="5" cols="33" onChange={handleBook}/>
+      </label>
+      <label>
+        Image:
+        <input type="text" name="image" onChange={handleBook}/>
+      </label>
+      <label>
+        Capacity:
+        <input type="number" name="capacity" onChange={handleBook}/>
+      </label>
+      <label>
+        Price:
+        <input type="number" name="price" onChange={handleBook}/>
+      </label>
+
+      <label>
+        Category:
+        <select name="category" onChange={handleBook}>
+          <option value="comedy">comedy</option>
+          <option value="thriller">thriller</option>
+          <option value="mystery">mystery</option>
+          <option value="fantasy">fantasy</option>
+          <option value="fiction">fiction</option>
+        </select>
+      </label>
+
+      <button type="submit">Add to List</button>
+    </form>
+</main>
+  )
+}
+
+export default AddBooks
