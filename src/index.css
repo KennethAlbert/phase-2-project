@@ -1,0 +1,281 @@
+:root {
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+  Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background:#f8f8f8;
+  color: grey;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color:#120909;
+}
+
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+/* section */
+
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+}
+.btn {
+  background: #ebeee2;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 25px;
+  text-transform: capitalize;
+  color: #f797ff;
+  border-color: transparent;
+  cursor: pointer;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+/*
+=============== 
+Books
+===============
+*/
+.section {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+main {
+  width: 100vw;
+  max-width: var(--fixed-width);
+  margin: 4rem auto;
+}
+.loading {
+  text-align: center;
+}
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.NewItem {
+  border-bottom: 2px solid var(--background-light);
+  border-top: 2px solid var(--background-light);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.NewItem button {
+  background: yellow;
+  padding: 1rem;
+  border: none;
+  border-radius:1rem;
+  margin-right:10rem;
+  width:50%;
+}
+
+.NewItem  {
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.NewItem label{
+  margin-bottom:1rem;
+  margin-right: 10rem;
+}
+
+.NewItem input ,select{
+  padding: 1rem;
+  border-radius:1rem;
+  margin-right: 1rem;
+}
+
+.Filter {
+  display: flex;
+  margin-top:1rem;
+  flex-direction: column;
+  margin-left: 24rem;
+}
+
+.Filter select,
+.Filter input {
+  width: 45%;
+  height:3rem;
+  margin: 0;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+.single-book {
+  background: #fffaf2;
+  border-radius: var(--radius);
+  margin-bottom:2rem;
+  box-shadow: var(--light-shadow);
+  transition: var(--transition);
+}
+.single-book:hover {
+  box-shadow: var(--dark-shadow);
+}
+.single-book img {
+  width: 100%;
+  height: 20rem;
+  object-fit: scale-down;
+  border-top-right-radius: var(--radius);
+  border-top-left-radius: var(--radius);
+}
+.book-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.book-info h4 {
+  margin-bottom: 0;
+}
+.single-book button {
+  background: transparent;
+  border-color: transparent;
+  text-transform: capitalize;
+  color: var(--clr-primary-5);
+  font-size: 1rem;
+  cursor: pointer;
+  padding-left: 0.25rem;
+}
+.book-price {
+  color: #1a55b8;
+  background: #00b3ff;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+}
+.single-book footer {
+  padding: 1.5rem 2rem;
+}
+.single-book .delete-btn {
+  display: block;
+  width: 200px;
+  margin: 1rem auto 0 auto;
+  color: #af0000;
+  letter-spacing: var(--spacing);
+  background: transparent;
+  border: 1px solid red;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+}
+
+.cartNav{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 40px;
+ 
+}
+
+.cartNav div{
+  background-color: #f797ff;
+  border: none;
+  border-radius:10px;
+  padding: 1rem;
+  transition: all 3s;
+}
+
+.cartNav div:hover{
+  background-color: #f8f8f8;
+}
+
+#booksCart{
+  position: fixed;
+}
+#inCart{
+position: fixed;
+top:60px
+}
+
+.single-book .addToCart-btn{
+
+  display: block;
+  width: 200px;
+  margin: 1rem auto 0 auto;
+  color: #1a4fac;
+  letter-spacing: var(--spacing);
+  background: transparent;
+  border: 1px solid #20c4d8;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px; 
+}
