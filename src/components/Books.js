@@ -23,9 +23,7 @@ const Books = ({ books,handleAddCart,handlDelete,incart }) => {
     }
   });
 
-  function handleSearchChange(event) {
-    setfilterName(event.target.value)
-  }
+  function handleSearchChange(event) {setfilterName(event.target.value)}
 
 
   function handleCategoryChange(event) {
