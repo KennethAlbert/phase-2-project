@@ -17,11 +17,11 @@ run--  ```npm start```   ---to start the react server
 run ---  ```npm run server```   ---to start the db.json server
 
 ### Technologies Used
-HTML,CSS,JAVASCRIPT && REAACT
+HTML,CSS,JAVASCRIPT && REACT
 
 
 
-## Core Features
+### Core Features
 
 users can:
 1. See every book item available in the database(db.json) after the page loads
