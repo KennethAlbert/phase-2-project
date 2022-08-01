@@ -8,20 +8,23 @@ Link:https://book-store-react-project.herokuapp.com/
 
 GitHub:https://github.com/KennethAlbert/phase-2-project
 
+GitHub-backend:https://github.com/KennethAlbert/book-store-jsonData
 
-## Available Scripts
+
+### Available Scripts
+
 run--  ```npm start```   ---to start the react server
 run ---  ```npm run server```   ---to start the db.json server
 
-## Technologies Used
+### Technologies Used
 HTML,CSS,JAVASCRIPT && REAACT
 
 
 
-### Core Features
+## Core Features
 
 users can:
-1.See every book item available in the database(db.json) after the page loads
+1. See every book item available in the database(db.json) after the page loads
 see the code below:
 
 I have created a repository on github responsible for the creation of a restful API hosted it on glitch https://voltaic-glittery-fold.glitch.me/books
@@ -51,7 +54,7 @@ useEffect(() => {
 The book items will be stored in the books state variable and passed down via props to child components for future rendering on the UI
 
 
-2.see every item available in cart
+2. see every item available in cart
 ```
 const[incart ,setCart]=useState([]);
  const newBook= books.filter(book=>{
@@ -68,7 +71,7 @@ we then look for how many items in the book state variable have a boolean value 
 
 We then use the useEffect hook to render Items as the return value will be dependant on changes changes in the book variable;
 
-3.Increase or decrease the number of items in the cart
+3. Increase or decrease the number of items in the cart
 ```
 function InCartBook({book,handleCapacity,handleRemoveCapacity,handlCartRemove}) {
 const [readMore, setReadMore] = useState(false);
@@ -132,7 +135,8 @@ export default InCartBook
 The  InCartBook component will be responsible for handling the addition and reduction of cart items as it accomodates the handleCapacity && handlCartRemove call back functions which are responsible for the operations,they accept a book item as a parameter and uses that to change respective properties both in state and the database.
 
 An Admin can---
-1.Delete items from the database and state:
+
+1. Delete items from the database and state:
 ```
 function Admin({books,handleDelete,handleBooks }) {
     const [readMore, setReadMore] = useState(false);
@@ -206,7 +210,7 @@ export default Admin
 ```
 Through props the Admin component will accept handleDelete call back function from the App component which will then delete the specific item clicked on.
 
-2.The admin can Add items into the database(db.json) and at the same time in state-
+2. The admin can Add items into the database(db.json) and at the same time in state-
 see the code below-
 ```
 import React,{useState} from 'react'
@@ -315,7 +319,7 @@ function AddBooks({handleBooks}) {
 export default AddBooks
 ```
 
-## LICENSE
+### LICENSE
 
 MIT License
 
