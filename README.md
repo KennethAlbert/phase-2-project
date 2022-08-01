@@ -13,7 +13,7 @@ GitHub:https://github.com/KennethAlbert/phase-2-project
 run--  ```npm start```   ---to start the react server
 run ---  ```npm run server```   ---to start the db.json server
 
-## Technology Used
+## Technologies Used
 HTML,CSS,JAVASCRIPT && REAACT
 
 
@@ -24,11 +24,13 @@ users can:
 1.See every book item available in the database(db.json) after the page loads
 see the code below:
 
+I have created a repository on github responsible for the creation of a restful API hosted it on glitch https://voltaic-glittery-fold.glitch.me/books
+
 ```
 const [books,setBooks] = useState[]);
 
 
-const url = 'http://localhost:8004/books'
+const url = 'https://voltaic-glittery-fold.glitch.me/books'
 
 useEffect(() => {
     fetch(url)
@@ -317,7 +319,7 @@ export default AddBooks
 
 MIT License
 
-Copyright (c) [2017] [James Q Quick]
+Copyright (c) [2022] [Kenneth Albert]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
