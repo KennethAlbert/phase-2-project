@@ -16,6 +16,8 @@ GitHub-backend:https://github.com/KennethAlbert/book-store-jsonData
 run--  ```npm start```   ---to start the react server
 run ---  ```npm run server```   ---to start the db.json server
 
+since we have linked the db.json file to another github repository and deployed the repo to glitch we will not be required to run npm run server command to start the backend side of our project...
+
 ### Technologies Used
 HTML,CSS,JAVASCRIPT && REACT
 
