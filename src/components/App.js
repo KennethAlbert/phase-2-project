@@ -7,7 +7,7 @@ import Admin from './Admin';
 
 
 
-const url = 'http://localhost:8004/books'
+const url = 'https://voltaic-glittery-fold.glitch.me/books'
 
 
 
@@ -50,7 +50,7 @@ function App() {
 
   
 function handleBooks(book){
- fetch('http://localhost:8004/books', {
+ fetch('https://voltaic-glittery-fold.glitch.me/books', {
 method: 'POST', 
 headers: {
 'Content-Type': 'application/json',
@@ -68,14 +68,14 @@ body: JSON.stringify(book),
   function handleDelete(id) {
     const newBook=books.filter(book=>book.id!==id);
     setBooks(newBook)
-    fetch('http://localhost:8004/books/' + id, {
+    fetch('https://voltaic-glittery-fold.glitch.me/books/' + id, {
     method: 'DELETE',
 })
    }
 
 
  function handleUpdate(id,key,value){
-  fetch(`http://localhost:8004/books/${id}`, {
+  fetch(`https://voltaic-glittery-fold.glitch.me/books/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
@@ -98,7 +98,7 @@ body: JSON.stringify(book),
    if(incart.some(cart=>cart.id===book.id)===false){
    if(book.InCart===false ){
       
-      return fetch(`http://localhost:8004/books/${book.id}`, {
+      return fetch(`https://voltaic-glittery-fold.glitch.me/books/${book.id}`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -118,7 +118,7 @@ body: JSON.stringify(book),
    
     if(incart.some(cart=>cart.id===book.id)===true) {
       if(book.InCart===true && book.capacity>=book.sold ){
-      return fetch(`http://localhost:8004/books/${book.id}`, {
+      return fetch(`https://voltaic-glittery-fold.glitch.me/books/${book.id}`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -134,7 +134,7 @@ body: JSON.stringify(book),
    function handleCapacity(book){
     const exist = incart.find((x) => x.id === book.id);
     if (exist && book.capacity>book.sold) {
-       return fetch(`http://localhost:8004/books/${book.id}`, {
+       return fetch(`https://voltaic-glittery-fold.glitch.me/books/${book.id}`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -151,7 +151,7 @@ body: JSON.stringify(book),
   function handleRemoveCapacity(book){
     const exist = incart.find((x) => x.id === book.id);
     if (exist && book.sold>1 ) {
-       return fetch(`http://localhost:8004/books/${book.id}`, {
+       return fetch(`https://voltaic-glittery-fold.glitch.me/books/${book.id}`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -165,7 +165,7 @@ body: JSON.stringify(book),
   } 
 function handlCartRemove(book){
   setCart(incart.filter((cart)=>cart.id!==book.id))
-  fetch(`http://localhost:8004/books/${book.id}`, {
+  fetch(`https://voltaic-glittery-fold.glitch.me/books/${book.id}`, {
     method: 'PATCH',
     headers: {
       'Content-type': 'application/json; charset=UTF-8',

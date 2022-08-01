@@ -8,7 +8,7 @@ function InCart({books,handleCapacity,handleRemoveCapacity,handlCartRemove,setCa
 
   function handleReset(){
     books.map(book=>{
-     return fetch(`http://localhost:8004/books/${book.id}`, {
+     return fetch(`https://voltaic-glittery-fold.glitch.me/books/${book.id}`, {
         method: 'PATCH',
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
